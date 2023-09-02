@@ -3,6 +3,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Phudu:wght@500&display=swap" rel="stylesheet">
 <style>
     html {
         font-family: Roboto, Arial;
@@ -13,6 +14,26 @@
 
     body {
         background-color: #0E21A0;
+    }
+
+    .logo {
+        letter-spacing: 5px;
+        font-family: Phudu;
+        font-weight: 500;
+        text-decoration: none;
+        color: #EC53B0;
+        font-size: 42px;
+    }
+
+    .logo-div {
+        line-height: 90px;
+        margin: 0 20px;
+        text-align: center;
+    }
+
+    .logo-big {
+        margin: 40px;
+        font-size: 126px;
     }
 
     header {

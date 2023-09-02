@@ -5,6 +5,7 @@
   <title>Log In</title>
 </head>
 <body>
+  <div class="logo logo-div logo-big">Taximum</div>
   <main class="interaction-form">
     <p class="error-message">${errorMsg}</p>
     <form action="${pageContext.request.contextPath}/login" method="post">

@@ -5,6 +5,7 @@
     <title>Register</title>
 </head>
 <body>
+    <div class="logo logo-div logo-big">Taximum</div>
     <main class="interaction-form">
         <form action="${pageContext.request.contextPath}/drivers/add" method="post">
             <div class="table">

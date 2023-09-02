@@ -5,6 +5,11 @@
     </head>
     <body>
         <header>
+            <a class="logo" href="">
+                <div class="logo-div">
+                    Taximum
+                </div>
+            </a>
             <a class="head-link" href="/cars">Cars</a>
             <a class="head-link" href="/drivers">Drivers</a>
             <a class="head-link" href="/manufacturers">Manufacturers</a>
