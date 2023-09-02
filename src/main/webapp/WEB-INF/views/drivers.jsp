@@ -6,26 +6,23 @@
     <title>Drivers</title>
 </head>
     <body>
-        <%@ include file="header.jsp"%><br>
-        <c:if test="${drivers.size() == 0}">No drivers exist!</c:if>
-        <c:if test="${drivers.size() != 0}">
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>License number</th>
-                    <th>Delete</th>
-                </tr>
-                <c:forEach items="${drivers}" var="driver">
-                    <tr>
-                        <th><c:out value="${driver.id}"/></th>
-                        <th><c:out value="${driver.name}"/></th>
-                        <th><c:out value="${driver.licenseNumber}"/></th>
-                        <th><a href="/drivers/delete?id=${driver.id}">Delete</a></th>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:if>
-        <a style="color:red">${errorMsg}</a>
+        <%@ include file="header.jsp"%>
+        <main>
+            <section>
+                <h2>Drivers list</h2>
+                <c:if test="${drivers.size() == 0}">No drivers exist!</c:if>
+                <c:if test="${drivers.size() != 0}">
+                    <c:forEach items="${drivers}" var="driver">
+                        <div class="item-container">
+                            <div class="item item-id"><c:out value="${driver.id}"/></div>
+                            <div class="item"><c:out value="${driver.name}"/></div>
+                            <div class="item"><c:out value="${driver.licenseNumber}"/></div>
+                            <div class="item"><a class="container-link" href="/drivers/delete?id=${driver.id}">Delete</a></div>
+                        </div>
+                    </c:forEach>
+                </c:if>
+            </section>
+            <a style="color:red">${errorMsg}</a>
+        </main>
     </body>
 </html>

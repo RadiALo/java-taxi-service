@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
+import taxi.dao.CarDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Car;
@@ -200,6 +202,9 @@ public class CarDaoImpl implements CarDao {
     private void addDrivers(Long carId, List<Driver> drivers) {
         String addDriversRequest =
                 "INSERT INTO cars_drivers(car_id, driver_id) VALUES (?, ?);";
+        if (drivers.isEmpty()) {
+            return;
+        }
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement addDriversStatement =
                         connection.prepareStatement(addDriversRequest)) {

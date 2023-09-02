@@ -1,15 +1,38 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Log In</title>
+  <%@ include file="styles.jsp"%>
+  <title>Log In</title>
 </head>
 <body>
-  <form action="${pageContext.request.contextPath}/login" method="post">
-    Login: <input type="text" name="login" required><br>
-    Password: <input type="password" name="password" required><br>
-    <input type="submit" name="add">
-  </form>
-  <h1 style="color: red">${errorMsg}</h1>
-  <a href="${pageContext.request.contextPath}/drivers/add">Create Driver</a>
+  <main class="interaction-form">
+    <p class="error-message">${errorMsg}</p>
+    <form action="${pageContext.request.contextPath}/login" method="post">
+      <div class="table">
+        <p class="tabled-row">
+          <label for="login" class="tabled">Login:</label>
+          <input type="text"
+                 id="login"
+                 class="tabled"
+                 name="login"
+                 placeholder="Enter your name"
+                 required>
+        </p>
+        <p class="tabled-row">
+          <label for="password" class="tabled">Password:</label>
+          <input type="password"
+                 id="password"
+                 class="tabled"
+                 placeholder="Enter your password"
+                 name="password"
+                 required>
+        </p>
+      </div>
+      <div class="panel">
+        <input class="button" type="submit" value="Log in">
+        <a class="link" href="${pageContext.request.contextPath}/drivers/add">Register</a>
+      </div>
+    </form>
+  </main>
 </body>
 </html>

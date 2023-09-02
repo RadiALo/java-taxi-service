@@ -6,39 +6,50 @@
 </head>
     <body>
         <%@ include file="header.jsp"%><br>
-        <c:if test="${cars.size() == 0}">No cars exist!</c:if>
-        <c:if test="${cars.size() != 0}">
-            <table>
-                <tr>
-                    <th>Id</th>
-                    <th>Model</th>
-                    <th>Manufacturer</th>
-                    <th>Drivers</th>
-                    <th>Delete</th>
-                </tr>
-                <c:forEach items="${cars}" var="car">
-                    <tr>
-                        <th><c:out value="${car.id}"/></th>
-                        <th><c:out value="${car.model}"/></th>
-                        <th><c:out value="${car.manufacturer.name}"/></th>
-                        <th><a href="/cars/drivers?id=${car.id}">Manage</a></th>
-                        <th><a href="/cars/delete?id=${car.id}">Delete</a></th>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:if>
-        <a style="color:red">${errorMsg}</a>
-        <form action="${pageContext.request.contextPath}/cars/add" method="post">
-            Model: <input type="text" name="model">
-            Manufacturer:
-            <select name="manufacturerId">
-                <c:forEach items="${manufacturers}" var="manufacturer">
-                    <option value="${manufacturer.id}">
-                        <c:out value="${manufacturer.id}" />. <c:out value="${manufacturer.name}" />
-                    </option>
-                </c:forEach>
-            </select>
-            <input type="submit" value="Submit">
-        </form>
+        <main>
+            <section>
+                <c:if test="${cars.size() == 0}">No cars exist!</c:if>
+                <c:if test="${cars.size() != 0}">
+                    <h2>Cars list</h2>
+                    <c:forEach items="${cars}" var="car">
+                        <div class="item-container">
+                            <div class="item item-id"><c:out value="${car.id}"/></div>
+                            <div class="item"><c:out value="${car.model}"/></div>
+                            <div class="item"><c:out value="${car.manufacturer.name}"/></div>
+                            <a class="container-link" href="/cars/drivers?id=${car.id}">Manage</a>
+                            <a class="container-link" href="/cars/delete?id=${car.id}">Delete</a>
+                        </div>
+                    </c:forEach>
+                </c:if>
+                <a style="color:red">${errorMsg}</a>
+            </section>
+            <section>
+                <h2>Create new car</h2>
+                <form action="${pageContext.request.contextPath}/cars/add" method="post">
+                    <div class="table">
+                        <p class="tabled-row">
+                            <label class="tabled" for="model">Model:</label>
+                            <input class="tabled"
+                                   type="text"
+                                   id="model"
+                                   name="model"
+                                   placeholder="Enter car model"
+                                   required>
+                        </p>
+                        <p class="tabled-row">
+                            <label class="tabled" for="manufacturerId">Manufacturer:</label>
+                            <select class="tabled" id="manufacturerId" name="manufacturerId">
+                                <c:forEach items="${manufacturers}" var="manufacturer">
+                                    <option value="${manufacturer.id}">
+                                        <c:out value="${manufacturer.name}" />
+                                    </option>
+                                </c:forEach>
+                            </select>
+                        </p>
+                    </div>
+                    <input class="button" type="submit" value="Add">
+                </form>
+            </section>
+        </main>
     </body>
 </html>
